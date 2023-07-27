@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja Bem-Vindo a Tenebris!</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<body class="main">
+    <header class="header">
+        <image class="logo" src="images/logo/logo.png" alt="Logo Ordem Paranormal">
+    </header>
+
+    <div class="container">
+        <div class="website">
+            <iframe class="table"
+                src="https://multiverse.com/"></iframe>
+        </div>
+        <div class="column_characters_one">
+            <div class="Character_Box">
+                <img class="ch_img" src="images/characters/agente k.png" alt="Agente K">
+                <input class="hp_input" type="number" id="hpK" value="0" readonly>
+                <input class="sanidade_input" type="number" id="sanidadeK" value="0" readonly>
+                <input class="esforco_input" type="number" id="esforcoK" value="0" readonly>
+                <div class="buttons">
+                    <button class="button_style" onclick="aumentarValor('hpK')">+ HP </button>
+                    <button class="button_style" onclick="diminuirValor('hpK')">- HP</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeK')">+ S</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeK')">+ S</button>
+                    <button class="button_style" onclick="aumentarValor('esforcoK')">+ PE</button>
+                    <button class="button_style" onclick="diminuirValor('esforcoK')">- PE</button>
+                </div>
+            </div>
+
+            <div class="Character_Box">
+                <img class="ch_img" src="images/characters/Agente Naosei.png" alt="Agente ?">
+                <input class="hp_input" type="number" id="hpV" value="0" readonly>
+                <input class="sanidade_input" type="number" id="sanidadeV" value="0" readonly>
+                <input class="esforco_input" type="number" id="esforcoV" value="0" readonly>
+                <div class="buttons">
+                    <button class="button_style" onclick="aumentarValor('hpV')"> + HP</button>
+                    <button class="button_style" onclick="diminuirValor('hpV')">- HP</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeV')">+ S</button>
+                    <button class="button_style" onclick="diminuirValor('sanidadeV')">- S</button>
+                    <button class="button_style" onclick="aumentarValor('esforcoV')">+ PE</button>
+                    <button class="button_style" onclick="diminuirValor('esforcoV')">- PE</button>
+                </div>
+            </div>
+
+            <div class="Character_Box">
+                <img class="ch_img" src="images/characters/doc.png" alt="Doc">
+                <input class="hp_input" type="number" id="hpDoc" value="0" readonly>
+                <input class="sanidade_input" type="number" id="sanidadeDoc" value="0" readonly>
+                <input class="esforco_input" type="number" id="esforcoDoc" value="0" readonly>
+                <div class="buttons">
+                    <button class="button_style" onclick="aumentarValor('hpDoc')"> + HP</button>
+                    <button class="button_style" onclick="diminuirValor('hpDoc')">- HP</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeDoc')">+ S</button>
+                    <button class="button_style" onclick="diminuirValor('sanidadeDoc')">- S</button>
+                    <button class="button_style" onclick="aumentarValor('esforcoDoc')">+ PE</button>
+                    <button class="button_style" onclick="diminuirValor('esforcoDoc')">- PE</button>
+                </div>
+            </div>
+            <div class="Character_Box">
+                <img class="ch_img" src="images/characters/clay.png" alt="Clay">
+                <input class="hp_input" type="number" id="hpClay" value="0" readonly>
+                <input class="sanidade_input" type="number" id="sanidadeClay" value="0" readonly>
+                <input class="esforco_input" type="number" id="esforcoClay" value="0" readonly>
+                <div class="buttons">
+                    <button class="button_style" onclick="aumentarValor('hpClay')">+ HP</button>
+                    <button class="button_style" onclick="diminuirValor('hpClay')">- HP</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeClay')">+ S</button>
+                    <button class="button_style" onclick="diminuirValor('sanidadeClay')">- S</button>
+                    <button class="button_style" onclick="aumentarValor('esforcoClay')">+ PE</button>
+                    <button class="button_style" onclick="diminuirValor('esforcoClay')">- PE</button>
+                </div>
+
+            </div>
+
+            <button class="button_style" id="btn_revealV" onclick="revealBlur()">?</button>
+            <div class="Character_Box_Venator">
+                <img class="ch_img" id ="character" src="images/characters/VenatorBlur.png" alt="?">
+                <input class="hp_input" type="number" id="hpVenator" value="65" readonly>
+                <input class="sanidade_input" type="number" id="sanidadeVenator" value="21" readonly>
+                <input class="esforco_input" type="number" id="esforcoVenator" value="27" readonly>
+                <div class="buttons">
+                    <button class="button_style" onclick="aumentarValor('hpVenator')">+ HP</button>
+                    <button class="button_style" onclick="diminuirValor('hpVenator')">- HP</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeVenator')">+ S</button>
+                    <button class="button_style" onclick="diminuirValor('sanidadeVenator')">- S</button>
+                    <button class="button_style pe_buttons" onclick="aumentarValor('esforcoVenator')">+ PE</button>
+                    <button class="button_style pe_buttons" onclick="diminuirValor('esforcoVenator')">- PE</button>
+                </div>
+            </div>
+            <button class="button_style_v2" id="btn_revealV2" onclick="toReveal()">?</button>
+        </div>
+    </div>
+    <script src="script/main.js"></script>
+</body>
+
+</html>
