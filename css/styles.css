@@ -17,41 +17,37 @@
     background-size: cover;
     background-position: center top;
     background-attachment: fixed;
-    
-    
-   
 }
 
-.body {
+body {
+    font-size: 16px;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
-    
 }
-.header{
-
+.header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1% 0 0;
-
+    padding: 1% 0;
 }
-@media (max-width: 800px) {
-    .header {
+@media (max-width: 768px) {
+    .header,
+    .container {
         flex-direction: column;
     }
 }
 
 /* ///////////////////////////////// */
 /* IFRAME */
-
 .table {
-    width: 1000px ;
-    height: 750px ;
+
+    width: 100vh;
+    height: 80vh;
     margin-top: 5px;
     border: 7px solid var(--gray);
-    border-radius: 4px ; 
+    border-radius: 4px;
 }
 
 
@@ -60,13 +56,12 @@
 
 .container {
     display: flex;
-    gap: 1%;
-    padding: 2px 2% 2% 2%;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     font-family: 'Death Spirit';
-    
+    padding: 2px 2% 2% 2%;
+    gap: 1%;
 }
-.column_characters_one{
+.column_characters{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;    
@@ -76,32 +71,22 @@
     
 
 }
-
 .Character_Box {
     backdrop-filter: blur(10px);
-    width: 32%;
-    border: solid 0.3em var(--gray) ;
+    width: calc(25% - 2%);
+    height: auto    ; /* Distribui em três colunas com gap de 2% */
+    border: solid 0.3em var(--gray);
     border-radius: 2%;
-    flex-wrap: wrap;
     margin-top: 5px;
-    font-family: 'Death Spirit';
-    
+ 
 }
 
-.Character_Box_Venator {
-    display: none;
-    backdrop-filter: blur(10px);
-    width: 32%;
-    border: solid 0.3em var(--gray) ;
-    border-radius: 2%;
-    flex-wrap: wrap;
-    margin-top: 5px;
-    font-family: 'Death Spirit';
-    
-}
 
-.ch_img{
-    width: 80%;
+
+.ch_img {
+    width: 100%;
+    max-width: 100%;
+  
 }
 
 /* ///////////////////////////////// */
@@ -109,49 +94,43 @@
 
 /* inputs */
 
-.hp_input {
+.hp_input,
+.sanidade_input,
+.esforco_input {
     background: transparent;
     color: var(--white);
-    top: 9.5%;
-    left: 53%;
-    font-size: 24px;
+    font-size: 0.9vw; /* Utilizando vw para tamanho de fonte responsivo */
+    padding: 0.5vw; /* Utilizando vw para espaçamento responsivo */
+    text-align: center;
     position: absolute;
     z-index: 0;
-    width: 74px;
+    width: 3vw; /* Utilizando vw para largura responsiva */
+    border: none; /* Removendo a borda para um estilo mais limpo */
+    outline: none; /* Removendo a borda de foco */
+    transform: translate(-50%, -50%); /* Centraliza o input */
+    
+    
+}
+.hp_input{
+    top: 12.5%;
+    left: 73%;
+}
+.sanidade_input{
+    top: 24.5%;
+    left: 75%;
+}
+.esforco_input{
+    top: 36.5%;
+    left: 86%;
 }
 
 .hp_input:focus {
     outline: none;
 }
 
-.sanidade_input{
-    background: transparent;
-    color: var(--white);
-    top: 24.5%;
-    left: 57%;
-    font-size: 24px;
-    position: absolute;
-    z-index: 0;
-    width: 74px;
-}
 
 .sanidade_input:focus {
     outline: none;
-}
-
-.esforco_input{
-    background: transparent;
-    color: var(--white);
-    font-size: 24px; /* Ajuste o valor do font-size conforme necessário */
-    padding: 2px; /* Ajuste o valor do padding conforme necessário */
-    text-align: center; /* Alinha o texto no centro do input */
-    position: absolute;
-    top: 39%;
-    left: 53.5%;
-    width: 74px;
-    height: 30px;
-    z-index: 0;
- 
 }
 
 .esforco_input:focus {
@@ -162,55 +141,33 @@
 
 .buttons {
     display: flex;
-    gap: 10px;
+    gap: 1vw; /* Utilizando vw para espaçamento responsivo */
     overflow: hidden;
     flex-wrap: wrap;
-    justify-content: space-around;
-    z-index: 1;
-
+    justify-content: center; /* Centralizando os botões horizontalmente */
+    align-items: center; /* Centralizando os botões verticalmente */
+    padding: 2%;
+  
 }
 .button_style {
-    border-radius: 3px ;
+    border-radius: 3px;
     background-color: var(--gray);
-    padding: 2%;
-    margin: 5px;
-    font-size: 25px;
-    width: 30%;
+    font-size: 1vw; /* Utilizando vw para tamanho de fonte responsivo */
     transition: transform 0.4s ease-in;
-    
+    width: 3vw;
+    height: 2.5vw;
+  
 }
 
 .button_style:hover {
     background-color: var(--white);
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
-.button_style_v2 {
-    display: none;
-    border-radius: 3px ;
-    background-color: var(--gray);
-    padding: 2%;
-    margin: 5px;
-    font-size: 25px;
-    width: 30%;
-    transition: transform 0.4s ease-in;
-    
-}
-
-.button_style_v2:hover {
-    background-color: var(--white);
-    transform: scale(1.2);
-}
-
-
-
 
 /* parte de baixo do site */
-.footer{
+.footer {
     color: var(--white);
     background-color: var(--black);
-    width: fit-content;
-    
-}
-.footer_text{
-    
+    padding: 2vw; /* Utilizando vw para espaçamento responsivo */
+    text-align: center;
 }

@@ -16,20 +16,4 @@ function aumentarValor(inputId) {
     input.value = valor;
   }
 
-  function toReveal() {
-    var image = document.getElementById("character");
-    var btn_rev2 = document.getElementById("btn_revealV2");
-    
-    image.src ="images/characters/Venator.png"
-    btn_rev2.remove();
-  }
 
-  function revealBlur() {
-    var btn_rev = document.getElementById("btn_revealV");
-    const characterBox = document.querySelector('.Character_Box_Venator');
-    var btn_rev2 = document.getElementById("btn_revealV2");
-    
-    characterBox.style.display = 'block';
-    btn_rev2.style.display = 'block';
-    btn_rev.remove();
-  }
