@@ -13,8 +13,12 @@
 <body class="main">
     <header class="header">
         <image class="logo" src="images/logo/logo.png" alt="Logo Ordem Paranormal">
+            <button id="fullscreenButton" class="buttonFs" >Entrar em Tela Cheia</button>
+            <button id="fullscreenButton" class="buttonFs" style="display: none;">Sair da Tela Cheia</button>
     </header>
 
+    <h1 class="popUpD" id="death" > VoceMorreu-!<br><strong class="strongD">Você Morreu!</strong></h1>
+    <h1 class="popUpC" id="crazy">Enlouquecendo!<br><strong class="strongC">Enlouquecendo!</strong></h1>
     <div class="container">
         <div class="website">
             <iframe class="table"
@@ -22,12 +26,27 @@
         </div>
         <div class="column_characters">
             <div class="Character_Box">
-                <img class="ch_img" src="images/characters/agente k.png" alt="Agente K">
-                <input class="hp_input" type="number" id="hpK" value="50" readonly>
-                <input class="sanidade_input" type="number" id="sanidadeK" value="50" readonly>
-                <input class="esforco_input" type="number" id="esforcoK" value="50" readonly>
+                <img class="ch_img" id="imageE" src="images/characters/Agent_E.png" alt="Agente E">
+                <input class="hp_input" type="number" id="hpE" value="1" readonly data-fullscreen-top="14.3%" data-fullscreen-left="73%" data-ch="E">
+                <input class="sanidade_input" type="number" id="sanidadeE" value="1" readonly data-fullscreen-top="26.9%" data-fullscreen-left="75%" data-ch="E">
+                <input class="esforco_input" type="number" id="esforcoE" value="50" readonly data-fullscreen-top="41.5%" data-fullscreen-left="86%" data-ch="E">
                 <div class="buttons">
-                    <button class="button_style" onclick="aumentarValor('hpK')">+ HP </button>
+                    <button class="button_style" onclick="aumentarValor('hpE')">+ HP </button>
+                    <button class="button_style" onclick="diminuirValor('hpE')">- HP</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeE')">+ SAN</button>
+                    <button class="button_style" onclick="diminuirValor('sanidadeE')">- SAN</button>
+                    <button class="button_style" onclick="aumentarValor('esforcoE')">+ PE</button>
+                    <button class="button_style" onclick="diminuirValor('esforcoE')">- PE</button>
+                </div>
+            </div>
+
+            <div class="Character_Box">
+                <img class="ch_img" id="imageK" src="images/characters/Agent_K.png" alt="Agente K">
+                <input class="hp_input" type="number" id="hpK" value="50" readonly  data-fullscreen-top="14.3%" data-fullscreen-left="73%" data-ch="K">
+                <input class="sanidade_input" type="number" id="sanidadeK" value="50" readonly data-fullscreen-top="26.9%" data-fullscreen-left="75%" data-ch="K">
+                <input class="esforco_input" type="number" id="esforcoK" value="50" readonly data-fullscreen-top="41.5%" data-fullscreen-left="86%" data-ch="K">
+                <div class="buttons">
+                    <button class="button_style" onclick="aumentarValor('hpK')"> + HP</button>
                     <button class="button_style" onclick="diminuirValor('hpK')">- HP</button>
                     <button class="button_style" onclick="aumentarValor('sanidadeK')">+ SAN</button>
                     <button class="button_style" onclick="diminuirValor('sanidadeK')">- SAN</button>
@@ -37,25 +56,10 @@
             </div>
 
             <div class="Character_Box">
-                <img class="ch_img" src="images/characters/Agente Naosei.png" alt="Agente ?">
-                <input class="hp_input" type="number" id="hpV" value="50" readonly>
-                <input class="sanidade_input" type="number" id="sanidadeV" value="50" readonly>
-                <input class="esforco_input" type="number" id="esforcoV" value="50" readonly>
-                <div class="buttons">
-                    <button class="button_style" onclick="aumentarValor('hpV')"> + HP</button>
-                    <button class="button_style" onclick="diminuirValor('hpV')">- HP</button>
-                    <button class="button_style" onclick="aumentarValor('sanidadeV')">+ SAN</button>
-                    <button class="button_style" onclick="diminuirValor('sanidadeV')">- SAN</button>
-                    <button class="button_style" onclick="aumentarValor('esforcoV')">+ PE</button>
-                    <button class="button_style" onclick="diminuirValor('esforcoV')">- PE</button>
-                </div>
-            </div>
-
-            <div class="Character_Box">
-                <img class="ch_img" src="images/characters/doc.png" alt="Doc">
-                <input class="hp_input" type="number" id="hpDoc" value="50" readonly>
-                <input class="sanidade_input" type="number" id="sanidadeDoc" value="50" readonly>
-                <input class="esforco_input" type="number" id="esforcoDoc" value="50" readonly>
+                <img class="ch_img" id="imageDoc" src="images/characters/Doc.png" alt="Doc">
+                <input class="hp_input" type="number" id="hpDoc" value="50" readonly data-fullscreen-top="14.3%" data-fullscreen-left="73%" data-ch="Doc">
+                <input class="sanidade_input" type="number" id="sanidadeDoc" value="50" readonly data-fullscreen-top="26.9%" data-fullscreen-left="75%" data-ch="Doc">
+                <input class="esforco_input" type="number" id="esforcoDoc" value="50" readonly data-fullscreen-top="41.5%" data-fullscreen-left="86%" data-ch="Doc">
                 <div class="buttons">
                     <button class="button_style" onclick="aumentarValor('hpDoc')"> + HP</button>
                     <button class="button_style" onclick="diminuirValor('hpDoc')">- HP</button>
@@ -66,37 +70,53 @@
                 </div>
             </div>
             <div class="Character_Box">
-                <img class="ch_img" src="images/characters/clay.png" alt="Clay">
-                <input class="hp_input" type="number" id="hpClay" value="50" readonly>
-                <input class="sanidade_input" type="number" id="sanidadeClay" value="50" readonly>
-                <input class="esforco_input" type="number" id="esforcoClay" value="50" readonly>
+                <img class="ch_img" id="imageU" src="images/characters/unnamed.png" alt="Unnamed">
+                <input class="hp_input" type="number" id="hpU" value="50" readonly data-fullscreen-top="14.3%" data-fullscreen-left="73%" data-ch="U">
+                <input class="sanidade_input" type="number" id="sanidadeU" value="50" readonly data-fullscreen-top="26.9%" data-fullscreen-left="75%" data-ch="U">
+                <input class="esforco_input" type="number" id="esforcoU" value="50" readonly data-fullscreen-top="41.5%" data-fullscreen-left="86%" data-ch="U">
                 <div class="buttons">
-                    <button class="button_style" onclick="aumentarValor('hpClay')">+ HP</button>
-                    <button class="button_style" onclick="diminuirValor('hpClay')">- HP</button>
-                    <button class="button_style" onclick="aumentarValor('sanidadeClay')">+ SAN</button>
-                    <button class="button_style" onclick="diminuirValor('sanidadeClay')">- SAN</button>
-                    <button class="button_style" onclick="aumentarValor('esforcoClay')">+ PE</button>
-                    <button class="button_style" onclick="diminuirValor('esforcoClay')">- PE</button>
+                    <button class="button_style" onclick="aumentarValor('hpU')">+ HP</button>
+                    <button class="button_style" onclick="diminuirValor('hpU')">- HP</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeU')">+ SAN</button>
+                    <button class="button_style" onclick="diminuirValor('sanidadeU')">- SAN</button>
+                    <button class="button_style" onclick="aumentarValor('esforcoU')">+ PE</button>
+                    <button class="button_style" onclick="diminuirValor('esforcoU')">- PE</button>
                 </div>
 
             </div>
 
           
             <div class="Character_Box">
-                <img class="ch_img" id ="character" src="images/characters/Venator.png" alt="Venator">
-                <input class="hp_input" type="number" id="hpVenator" value="65" readonly>
-                <input class="sanidade_input" type="number" id="sanidadeVenator" value="21" readonly>
-                <input class="esforco_input" type="number" id="esforcoVenator" value="27" readonly>
+                <img class="ch_img" id="imageV" src="images/characters/Agent_V.png" alt="Agente V">
+                <input class="hp_input" type="number" id="hpV" value="50" readonly data-fullscreen-top="14.3%" data-fullscreen-left="73%" data-ch="V">
+                <input class="sanidade_input" type="number" id="sanidadeV" value="50" readonly data-fullscreen-top="26.9%" data-fullscreen-left="75%" data-ch="V">
+                <input class="esforco_input" type="number" id="esforcoV" value="50" readonly data-fullscreen-top="41.5%" data-fullscreen-left="86%" data-ch="V">
                 <div class="buttons">
-                    <button class="button_style" onclick="aumentarValor('hpVenator')">+ HP</button>
-                    <button class="button_style" onclick="diminuirValor('hpVenator')">- HP</button>
-                    <button class="button_style" onclick="aumentarValor('sanidadeVenator')">+ SAN</button>
-                    <button class="button_style" onclick="diminuirValor('sanidadeVenator')">- SAN</button>
-                    <button class="button_style pe_buttons" onclick="aumentarValor('esforcoVenator')">+ PE</button>
-                    <button class="button_style pe_buttons" onclick="diminuirValor('esforcoVenator')">- PE</button>
+                    <button class="button_style" onclick="aumentarValor('hpV')">+ HP</button>
+                    <button class="button_style" onclick="diminuirValor('hpV')">- HP</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeV')">+ SAN</button>
+                    <button class="button_style" onclick="diminuirValor('sanidadeV')">- SAN</button>
+                    <button class="button_style pe_buttons" onclick="aumentarValor('esforcoV')">+ PE</button>
+                    <button class="button_style pe_buttons" onclick="diminuirValor('esforcoV')">- PE</button>
                 </div>
-            </div>
-            
+            </div> 
+            <div class="button_wrapper">
+                <button class="button_style_r" id="revealB" onclick="toReveal()">?</button>
+            </div>  
+            <div class="Character_Box" id="characterBoxW" style="display: none;">
+                <img class="ch_img" id="imageW" src="images/characters/Agent_W.png" alt="Agente W">
+                <input class="hp_input" type="number" id="hpW" value="50" readonly data-fullscreen-top="14.3%" data-fullscreen-left="73%" data-ch="W">
+                <input class="sanidade_input" type="number" id="sanidadeW" value="50" readonly data-fullscreen-top="26.9%" data-fullscreen-left="75%" data-ch="W">
+                <input class="esforco_input" type="number" id="esforcoW" value="50" readonly data-fullscreen-top="41.5%" data-fullscreen-left="86%" data-ch="W">
+                <div class="buttons">
+                    <button class="button_style" onclick="aumentarValor('hpW')">+ HP</button>
+                    <button class="button_style" onclick="diminuirValor('hpW')">- HP</button>
+                    <button class="button_style" onclick="aumentarValor('sanidadeW')">+ SAN</button>
+                    <button class="button_style" onclick="diminuirValor('sanidadeW')">- SAN</button>
+                    <button class="button_style pe_buttons" onclick="aumentarValor('esforcoW')">+ PE</button>
+                    <button class="button_style pe_buttons" onclick="diminuirValor('esforcoW')">- PE</button>
+                </div>
+            </div>    
         </div>
     </div>
     <script src="script/main.js"></script>

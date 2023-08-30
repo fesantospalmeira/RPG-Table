@@ -1,13 +1,33 @@
 @font-face {
-    font-family: "Death Spirit";
-    src: url("../fonts/Death Spirit.ttf") format("truetype");
+    font-family: "Sigilos";
+    src: url("../fonts/SigilosDoOutroLado-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Hebrew";
+    src: url("../fonts/adobehebrew-regular.otf") format("truetype");
+}
+
+@font-face {
+    font-family: "Westsac";
+    src: url("../fonts/westsac.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Estrangeiro";
+    src: url("../fonts/SinaisEstrangeiro.ttf") format("truetype");
 }
 
 :root {
     --black: #000;
-    --white:   #ffff;
+    --white: #ffff;
     --gray: #808080;
-    
+    --crazy: #ffff52;
+    --death: #AC28C9;
+    --sigilos: "Sigilos";
+    --estrangeiro: "Estrangeiro";
+    --padrao: "Westsac";
+
 }
 
 
@@ -25,6 +45,7 @@ body {
     padding: 0;
     overflow-y: scroll;
 }
+
 .header {
     display: flex;
     flex-direction: column;
@@ -32,12 +53,82 @@ body {
     align-items: center;
     padding: 1% 0;
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1500px) {
+
     .header,
     .container {
         flex-direction: column;
     }
 }
+
+/* ///////////////////////////////// */
+
+/* MENSAGENS DE MORTE E ENLOUQUECENDO */
+.popUpD,
+.popUpC {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    font-size: 10vw;
+    white-space: nowrap;
+    background-color: var(--black);
+    backdrop-filter: blur(10px);
+    display: none;
+}
+
+.strongD {
+    font-family: var(--padrao);
+    align-items: center;
+}
+
+.strongC {
+    font-family: var(--padrao);
+    align-items: center;
+}
+
+.popUpC {
+    color: var(--crazy);
+    font-family: var(--sigilos);
+    padding: 20%;
+}
+
+.popUpD {
+    color: var(--death);
+    font-family: var(--estrangeiro);
+    padding: 20%;
+}
+
+
+.popUpC.show {
+    display: block;
+    animation: fadeInOut 8s forwards;
+}
+
+.popUpD.show {
+    display: block;
+    animation: fadeInOut 8s forwards;
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    45%,
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
+
 
 /* ///////////////////////////////// */
 /* IFRAME */
@@ -57,28 +148,32 @@ body {
 .container {
     display: flex;
     justify-content: flex-start;
-    font-family: 'Death Spirit';
+    font-family: var(--padrao);
     padding: 2px 2% 2% 2%;
     gap: 1%;
 }
-.column_characters{
+
+.column_characters {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;    
+    flex-wrap: wrap;
     align-items: center;
     position: relative;
     gap: 2%;
-    
+
 
 }
+
 .Character_Box {
     backdrop-filter: blur(10px);
-    width: calc(25% - 2%);
-    height: auto    ; /* Distribui em três colunas com gap de 2% */
+    width: calc(30% - 2%);
+    height: auto;
+    /* Distribui em três colunas com gap de 2% */
     border: solid 0.3em var(--gray);
     border-radius: 2%;
     margin-top: 5px;
- 
+
+
 }
 
 
@@ -86,7 +181,7 @@ body {
 .ch_img {
     width: 100%;
     max-width: 100%;
-  
+
 }
 
 /* ///////////////////////////////// */
@@ -99,29 +194,37 @@ body {
 .esforco_input {
     background: transparent;
     color: var(--white);
-    font-size: 0.9vw; /* Utilizando vw para tamanho de fonte responsivo */
-    padding: 0.5vw; /* Utilizando vw para espaçamento responsivo */
+    font-size: 1.2vw;
+    /* Utilizando vw para tamanho de fonte responsivo */
+    padding: 0.5vw;
+    /* Utilizando vw para espaçamento responsivo */
     text-align: center;
     position: absolute;
-    z-index: 0;
-    width: 3vw; /* Utilizando vw para largura responsiva */
-    border: none; /* Removendo a borda para um estilo mais limpo */
-    outline: none; /* Removendo a borda de foco */
-    transform: translate(-50%, -50%); /* Centraliza o input */
-    
-    
+    width: 3vw;
+    /* Utilizando vw para largura responsiva */
+    border: none;
+    /* Removendo a borda para um estilo mais limpo */
+    outline: none;
+    /* Removendo a borda de foco */
+    transform: translate(-50%, -50%);
+    /* Centraliza o input */
+
+
 }
-.hp_input{
-    top: 12.5%;
-    left: 73%;
+
+.hp_input {
+    top: 18%;
+    left: 70%;
 }
-.sanidade_input{
-    top: 24.5%;
+
+.sanidade_input {
+    top: 35%;
     left: 75%;
 }
-.esforco_input{
-    top: 36.5%;
-    left: 86%;
+
+.esforco_input {
+    top: 54%;
+    left: 85%;
 }
 
 .hp_input:focus {
@@ -137,37 +240,67 @@ body {
     outline: none;
 }
 
-/* Buttom */
+/* Button */
+
+.buttonFs {
+    border-radius: 3px;
+    background-color: var(--gray);
+    font-family: var(--padrao);
+    font-size: 1vw;
+    /* Utilizando vw para tamanho de fonte responsivo */
+    transition: transform 0.4s ease-in;
+    width: 10vw;
+    height: 2vw;
+}
+
+.buttonFs:hover {
+    background-color: var(--white);
+    transform: scale(1.1);
+}
 
 .buttons {
     display: flex;
-    gap: 1vw; /* Utilizando vw para espaçamento responsivo */
+    gap: 1vw;
+    /* Utilizando vw para espaçamento responsivo */
     overflow: hidden;
     flex-wrap: wrap;
-    justify-content: center; /* Centralizando os botões horizontalmente */
-    align-items: center; /* Centralizando os botões verticalmente */
+    justify-content: center;
+    /* Centralizando os botões horizontalmente */
+    align-items: center;
+    /* Centralizando os botões verticalmente */
     padding: 2%;
-  
+
 }
-.button_style {
+
+.button_style,.button_style_r {
     border-radius: 3px;
     background-color: var(--gray);
-    font-size: 1vw; /* Utilizando vw para tamanho de fonte responsivo */
+    font-size: 1vw;
+    /* Utilizando vw para tamanho de fonte responsivo */
     transition: transform 0.4s ease-in;
     width: 3vw;
     height: 2.5vw;
-  
-}
 
+}
+.button_style_r{
+    width: 13vw;
+}
 .button_style:hover {
     background-color: var(--white);
     transform: scale(1.1);
 }
+.button_style_r:hover {
+    background-color: var(--white);
+    transform: scale(1.1);
+}
+
+/* ///////////////////////////////// */
 
 /* parte de baixo do site */
 .footer {
     color: var(--white);
     background-color: var(--black);
-    padding: 2vw; /* Utilizando vw para espaçamento responsivo */
+    padding: 2vw;
+    /* Utilizando vw para espaçamento responsivo */
     text-align: center;
 }
